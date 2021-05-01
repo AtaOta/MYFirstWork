@@ -1,0 +1,116 @@
+<!--=========================[We extended Base Html page by this code]=========================-->
+{% extends 'Basic.html' %}
+{% load static %}
+
+<!--==========================[Css content of Profile page]==========================-->
+{% block AppnedStyle_Sheet %}
+    <link rel="stylesheet" href="{% static 'css/ServPro/Service_Provider_Profile_Related/Service_Provider_Profile.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'css/ServPro/Service_Provider_Profile_Related/Service_Provider_Only_Profile.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'css/ServPro/Service_Provider_Profile_Related/Service_Provider_Product_Card.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'css/ServPro/Service_Provider_Profile_Related/Product_Details.css' %}" type="text/css" />
+{% endblock %}
+
+<!--==========================[This is the Body part of this page]==========================-->
+{% block body %}
+    <!-- ==================================================
+                    Full Page Container
+        ================================================== -->
+        <div class="Service_Provider_Profile_Page Service_Provider_Profile_Page_Hide" id="Service_Provider_Profile_Page">
+
+            <div class="Service_Provider_Profile_Container Service_Container">
+                <div class="Service_Provider_Profile_Container_holder">
+
+                    <div class="Service_Provider_Profile_Image_Holder Service_Detail_Holder">
+                        <div class="ServiceProvider_Image">
+                            <img src="{{ user.sellerprofile.Seller_Profile_pick.url }}">
+                        </div>
+                    </div>
+
+                    <div class="Service_Provider_Profile_Description_Holder">
+                        <div class="Serv_Institution_Name">Sarada Mata Store</div>
+
+                        <div class="Serv_Ratting">
+                            <div class="Star_Backgrund">
+                                <div id="Star_Backgrund_Color" style="width: 30%;"></div>
+                            </div>
+                            <div class="Star_Container" id="Star_Ratting">
+                                <img src="{% static 'Icon/ServPro/HollowStar.svg' %}" alt="1">
+                                <img src="{% static 'Icon/ServPro/HollowStar.svg' %}" alt="2">
+                                <img src="{% static 'Icon/ServPro/HollowStar.svg' %}" alt="3">
+                                <img src="{% static 'Icon/ServPro/HollowStar.svg' %}" alt="4">
+                                <img src="{% static 'Icon/ServPro/HollowStar.svg' %}" alt="5">
+                            </div>
+                        </div>
+
+                        <div class="Serv_Follow">
+                            <img src="{% static 'Icon/ServPro/Icon awesome-user-plus.svg' %}" alt="">
+                            <button>Follow</button>
+                        </div>
+                    </div>
+
+                    <div class="Service_Provider_Profile_Name_Holder">{{ user.sellerprofile.Seller_name }}</div>
+
+                    <div class="Service_Provider_Profile_MoreDetails_Holder">
+
+                        <div class="Serv_Institution_Name">
+                            Additional Profession: {{ user.sellerprofile.Seller_particular_profession }}
+                        </div>
+                        <div class="Serv_Institution_Name">
+                            <a href="#"><img src="{% static 'Icon/ServPro/Icon material-location-on.svg' %}" alt=""></a>
+                            Address: {{ user.sellerprofile.Seller_address }}
+                        </div>
+
+                        <div class="Serv_Phone_Number">
+                            <img src="{% static 'Icon/ServPro/Icon awesome-phone-alt.svg' %}" alt="">
+                            :{{ user.sellerprofile.Seller_phone_no }}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="Service_Provider_Dynamic_Container Service_Container">
+                <div class="Service_Provider_Product_Holder">
+
+                    {% for product in products %}
+                    <!-- Card -->
+                    <div class="Service_Provider_Product_Card">
+                        <img src="{{ product.prod_picture.url }}" alt="" class="Product_Img">
+                        <div class="Link_And_Details_Container">
+                            <div class="Link_Container">
+                                <img src="{% static 'Icon/ServPro/add-to-shopping-cart.svg' %}" alt="">
+                            </div>
+                            <div class="Link_Container">Rs.</div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+
+
+            <div id="Service_Provider_Product_Details" class="Service_Provider_Product_Details Service_Provider_Product_Details_PopUp_Hide">
+                <div id="Product_Details_Holder">
+                    <div class="Return_form_Product_Details">
+                        Back
+                    </div>
+                    <div class="Product_Details_Image_Container" id="Product_Image_shower_Container">
+                        <!-- We add Image here Dynamically -->
+                    </div>
+
+                    <div class="Product_Details_Image_Description">
+                        This is bla bla bla
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+{% endblock %}
+
+{% block Script %}
+<script src="{% static 'js/ServPro/Service_Provider_Profile_Related/Service_Provider_Profile.js' %}" async defer></script>
+{% endblock %}
+

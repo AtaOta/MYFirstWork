@@ -1,0 +1,191 @@
+.Header_Search_Box form{
+    display: none;
+}
+#AboutUs_Holder{
+    width: 100%;
+    height: 100vh;
+    overflow: auto;
+    font-family: sans-serif;
+    background-image: url('Backgound_Img.svg');
+    background-size: cover;
+    overflow: auto;
+    background-position: center;
+}
+
+.AboutUs_Header{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #888;
+    font-size: 24px;
+    font-weight: bold;
+    color: #1F8DCC;
+    background-color: transparent;
+}
+.AboutUs_Description{
+    display: inline-block;
+    text-align: justify;
+    padding: 5px;
+    font-size: 14px;
+    color: #4535E2;
+}
+.AboutUs_Description em{
+    font-weight: bold;
+    font-style: normal;
+}
+
+
+.AboutUs_Mission{
+    width: 100%;
+    display: block;
+    margin-top: 20px;
+}
+.Mission_Heading{
+    width: 100%;
+    text-align: center;
+    padding-top: 5px;
+    font-weight: bold;
+    font-size: 18px;
+    color: #1F8DCC;
+}
+.Mission_Description{
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: #4535E2;
+}
+
+
+
+.AboutUs_Empolyee_Details_Holder{
+    width: 100%;
+    /* border: 1px solid orange; */
+    height: auto;
+    margin-top: 10px;
+}
+.AboutUs_Empolyee_Details_Holder_InnerContainer{
+    width: 80%;
+    margin-left: 10%;
+    /* border: 1px solid blue;
+    box-sizing: border-box;
+    display: inline-block; */
+    margin-top: 5px;
+    padding-top: 20px;
+}
+.Employee_Image_Holder{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 3px #749591;
+    box-sizing: border-box;
+    overflow: hidden;
+    margin-left: 40%;
+}
+.Employee_Image_Holder img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.Basic_Details_Of_Employee{
+    min-height: 100px;
+    box-shadow: 0px 0px 3px #749591;
+    margin-top: 5px;
+    border-radius: 5px;
+    display: block;
+    padding: 2px 5px;
+    color: #4535E2;
+    font-size: 14px;
+}
+.Employee_Name{
+    font-size: 16px;
+    font-weight: bold;
+    color: #02630C;
+}
+.Employee_Status{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+
+
+.AboutUs_Footer{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: transparent;
+    height: auto;
+    margin-top: 10px;
+    font-size: 14px;
+}
+.AboutUs_contactUs{
+    padding: 5px;
+    color: #fff;
+    width: 50%;
+    border-right: 1px solid #fff;
+    background-color: #27252593;
+    box-shadow: 0px -2px 5px #aaa;
+    text-align: left;
+}
+.AboutUs_customer_service{
+    padding: 5px;
+    color: #fff;
+    width: 50%;
+    box-shadow: 0px -2px 5px #aaa;
+    border-left: 1px solid #fff;
+    background-color: #27252593;
+    text-align: right;
+}
+.Fotter_Heading{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+@media only screen and (min-width: 750px){
+    .AboutUs_Description{
+        display: inline-block;
+        text-align: justify;
+        padding: 5px 10%;
+        font-size: 14px;
+    }
+    .AboutUs_Empolyee_Details_Holder_InnerContainer{
+        display: flex;
+        justify-content: center;
+        margin-top: 5px;
+    }
+
+
+    .Employee_Image_Holder{
+        margin-left: 0%;
+    }
+    .Basic_Details_Of_Employee{
+        width: 80%;
+        min-height: 80px;
+        margin-left: 10px;
+        margin-top: 0px;
+    }
+
+    .AboutUs_Footer{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        height: auto;
+        margin-top: 10px;
+    }
+    .AboutUs_contactUs{
+        padding: 5px;
+        color: #fff;
+        width: 40%;
+        margin-left: 10%;
+        text-align: left;
+    }
+    .AboutUs_customer_service{
+        padding: 5px;
+        color: #fff;
+        width: 40%;
+        margin-right: 10%;
+        text-align: right;
+    }
+}

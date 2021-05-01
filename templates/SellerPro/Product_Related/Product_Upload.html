@@ -1,0 +1,79 @@
+<!--=========================[We extended Base Html page by this code]=========================-->
+{% extends 'Basic.html' %}
+{% load static %}
+
+<!--==========================[Css content of Profile page]==========================-->
+{% block AppnedStyle_Sheet %}
+<link rel="stylesheet" href="{% static 'css/ServPro/Product_Related/Product_Upload.css' %}" type="text/css">
+
+{% endblock %}
+
+<!--==========================[This is the Body part of this page]==========================-->
+{% block body %}
+
+<div class="Product_Upload_BaseContainer">
+    <div class="Product_Upload_HolderContainer">
+
+        <form action="{% url 'Product_Create' request.user.id %}" method="POST" enctype="multipart/form-data" id="products_form">
+            {% csrf_token %}
+            <div class="Product_Upload_ProductNameHolder">
+                        <label for="id_prod_name">Name:</label>
+                        <input type="text" name="prod_name" maxlength="255" id="id_prod_name"
+                            placeholder="Product Name">
+                    </div>
+
+
+                    <div class="Product_Upload_OfferHolder">
+                        <label for="id_prod_offer">Offer:</label>
+                        <input type="number" name="prod_offer" value="0" id="id_prod_offer">
+                        <span>%</span>
+                    </div>
+
+                    <div class="Product_Upload_PictureHolder">
+                        <div class="Product_Upload_image_preview" id="Product_Upload_image_Preview">
+                            <img src="" alt="Image Preview" class="Product_Upload_image_preview__image">
+                            <span class="Product_Upload_image_preview_default_text">Image PreView</span>
+                        </div>
+                        <input type="file" name="prod_picture" accept="image/*" id="id_prod_picture">
+                        <label for="id_prod_picture" id="Image_Acceptor">
+                            <img src="{% static 'Icon/NormPro/IconForPosts/folderIcon.svg' %}" alt="file Icon">
+                            <span id="NoImage_Alert">Choose A Product Picture.</span>
+                        </label>
+                    </div>
+
+                    <div class="Product_Upload_Price_quantity_Holder Product_Update_InputHolder">
+                        <div class="Product_Upload_Price Price_quantity_Holder">
+                            <label for="id_prod_price">Price: Rs.</label>
+                            <input type="number" name="prod_price" value="0" step="any" required="" id="id_prod_price">
+                        </div>
+                        <div class="Product_Upload_Price Price_quantity_Holder">
+                            <label for="id_quantity">| Quantity:</label>
+                            <input type="number" name="quantity" value="0" id="id_quantity">
+                        </div>
+
+                        <div class="Product_Upload_quantity Price_quantity_Holder">
+                            <label for="in_terms_of">/</label>
+                            {{ form.in_terms_of }}
+                        </div>
+                    </div>
+
+                    <div class="Product_Madein_Holder">
+                        <label for="id_country_Of_Origin">Made In:</label>
+                        {{ form.country_Of_Origin }}
+                    </div>
+
+                    <div class="Product_Upload_Product_Description_Holder">
+                        <textarea name="prod_description" id="id_prod_description"
+                            placeholder="Enter Your Product Description"></textarea>
+                    </div>
+
+            <div class="Submit_Button">
+                <button type="submit">Upload Product</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<script src="{% static 'js/SellerPro/Product_Related/Product_Upload.js' %}" async defer></script>
+{% endblock %}

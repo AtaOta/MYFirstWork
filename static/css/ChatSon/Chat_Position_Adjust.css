@@ -1,0 +1,38 @@
+/* Page Header Hider */
+header{
+    display: none;
+}
+#A_Top_menuBar{
+    margin-top: -45px;
+}
+.Profile_Page_User_Profile_And_Post_Container{
+    margin-top: -45px;
+}
+/* Only Chat Container Adjuster */
+ .User_Chat_Display_Container{
+    padding: 0px 5px;
+    display: grid;
+    grid-template-rows: auto 50px;
+}
+
+.Chat_Holder_Container{
+    max-height: 100vh;
+    width: 100%;
+    overflow: auto;
+    padding-bottom: 45px;
+}
+
+@media only screen and (max-width: 520px){
+    .User_Chat_Display_Container{
+        width: 100%;
+        grid-template-rows: auto 50px;
+    }
+    .User_Chat_Display_Container_For_SmallScreen{
+        margin-left: -5px;
+        position: fixed;
+    }
+    .Chat_Holder_Container{
+        width: 100%;
+        position: relative;
+    }
+}

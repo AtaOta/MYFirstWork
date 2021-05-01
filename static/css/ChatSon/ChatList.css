@@ -1,0 +1,29 @@
+.Toggle_Down_Profile_Section{
+    height: 25px;
+    width: 100%;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Toggle_Down_Profile_Section img{
+    height: 30px;
+    width: 30px;
+}
+.Fixed_Profile_Toggler_Image{
+    transform: rotateX(180deg);
+    transition: 1s;
+}
+
+@media only screen and (min-width: 520px){
+    .Toggle_Down_Profile_Section{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 520px){
+    .Hide_Profile_For_ChatList{
+        display: none;
+    }
+}

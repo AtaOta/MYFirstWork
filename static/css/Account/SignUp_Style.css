@@ -1,0 +1,208 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+*::-webkit-scrollbar{
+    display: none;
+}
+.Signup-Rapper{
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Theis Part is the container of signup form  */
+#SignupFrom-container{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    width: 100%;
+    max-width: 40rem;
+    background-color: #fff;
+    position: relative;
+    padding: 8rem 0;
+    box-shadow: 0 1px 1.5rem rgba(0, 0, 0, 0.1);
+    border-radius: 1rem;
+    z-index: 1;
+}
+#SignupFrom-container::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 14rem;
+    background: linear-gradient(24deg, rgba(255,255,255,1) 11%, rgba(253,200,77,1) 44%, rgba(253,176,36,1) 77%, rgba(252,135,69,1) 100%);
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    border-bottom-left-radius: 100%;
+    border-bottom-right-radius: 0;
+    z-index: -1;
+}
+#SignupFrom-container::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 14rem;
+    background: linear-gradient(23deg, rgba(86,254,64,1) 0%, rgba(175,255,138,1) 27%, rgba(240,255,164,1) 57%, rgba(255,255,255,1) 92%);
+    border-top-left-radius: 0;
+    border-top-right-radius: 90%;
+    border-bottom-right-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    z-index: -2;
+}
+
+/* This are other requirements for both login and signup form  */
+.SignupFrom-Heding{
+    font-family: sans-serif;
+    color: #fff;
+    font-size: 18px;
+    position: absolute;
+    width: 100%;
+    top: 2.5rem;
+    text-shadow: 0 1px 0.5rem rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+form{
+    transform: translateY(-10%);
+    background-color: transparent;
+    border-radius: 1rem;
+}
+.SignupInpu-group{
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    align-items: baseline;
+}
+.SignupInpu-group input{
+    position: relative;
+    width: 100%;
+    padding: 1rem 0;
+    margin-top: 0.5rem;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: transparent;
+    color: #000;
+}
+.SignupInpu-group .SignUp-bar{ /* That is for SignUp */
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 1px;
+}
+.SignupInpu-group .LogIn-bar{ /* This is for LogIn  */
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 1px;
+}
+.SignupInpu-group .SignUp-bar::before{/* That is for SignUp */
+    content: '';
+    position: absolute;
+    background-color: cyan;
+    width: 0;
+    height: 2px;
+    transition: width 0.8s;
+}
+
+.SignupInpu-group input:focus + .SignUp-bar::before{
+    width: 100%;
+}
+.SignupInpu-group input:focus + .LogIn-bar::before{/* This is for LogIn  */
+    width: 100%;
+}
+.SignupInpu-group button{
+    margin: 2rem auto;
+    padding: 0 2rem;
+    background: linear-gradient(to left, #fc6767, #ec008c);
+    border: none;
+    cursor: pointer;
+    border-radius: 3rem;
+    display: flex;
+    text-align: left;
+    justify-content: space-evenly;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    align-items: center;
+    text-shadow: 0 1px 0.2rem rgba(0, 0, 0, 0.2);
+}
+.SignupInpu-group button:focus,
+.SignupInpu-group button:hover{
+    background: linear-gradient(to right, #fc6767, #ec008c);
+    box-shadow: none;
+}
+/* This protion Style the left icons in this from  */
+.SignupInpu-group button:focus{
+    outline: 0;
+}
+.SignUp-IconHolder{
+    height: 2rem;
+    width: 2rem;
+    z-index: 2;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.SignUp-IconSubmit img{
+    height: 2rem;
+    width: 2rem;
+}
+
+/* Below link section  */
+.SignupSwitch-login{
+    text-align: center;
+}
+.Cancel_SignUp{
+    text-align: center;
+    margin-top: 5px;
+}
+.Cancel_SignUp button{
+    padding: 5px;
+    height: 35px;
+    width: 120px;
+    font-size: 14px;
+    font-weight: bold;
+    color: crimson;
+    background-color: #fff;
+    border: 2px solid crimson;
+    border-radius: 35px;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 0 1px 0.2rem rgba(0, 0, 0, 0.2);
+}
+.Cancel_SignUp button:focus{
+    outline: 0;
+}
+.Cancel_SignUp button:hover{
+    box-shadow: none;
+    background-color: #e4b0ba;
+}
+
+/* This Span is For Validation Purpose */
+.Validate{
+    color: red;
+    width: 100%;
+    display: table;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 350px){
+    .It_is_logInform{
+        transform: translateY(110px);
+    }
+} 

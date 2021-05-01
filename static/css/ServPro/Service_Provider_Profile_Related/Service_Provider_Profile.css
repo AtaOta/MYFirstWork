@@ -1,0 +1,72 @@
+*{
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+}
+
+.Service_Provider_Profile_Page{
+    display: grid;
+    grid-template-columns: repeat(12, minmax(auto, 130px));
+    grid-gap: 10px;
+}
+
+.Service_Provider_Profile_Container{
+    grid-column-end: span 3;
+    font-family: sans-serif;
+    box-shadow: 0px 1px 2px #aaa;
+}
+.Service_Provider_Dynamic_Container{
+    grid-column-start: span 9;
+    max-height: 100vh;
+    overflow: auto;
+}
+.Service_Provider_Dynamic_Container::-webkit-scrollbar{
+    display: none;
+}
+
+
+
+
+.Service_Provider_Product_Details{
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #161615ad;
+    font-family: sans-serif;
+    position: fixed;
+}
+/* This is for logical purpose */
+.Service_Provider_Product_Details_PopUp_Hide{
+    display: none;
+}
+
+
+
+@media only screen and (max-width: 1000px){
+    .Service_Provider_Profile_Container{
+        grid-column-end: span 4;
+    }
+    .Service_Provider_Dynamic_Container{
+        grid-column-start: span 8;
+    }
+}
+@media only screen and (max-width: 750px){
+    .Service_Provider_Profile_Container{
+        grid-column-end: span 5;
+    }
+    .Service_Provider_Dynamic_Container{
+        grid-column-start: span 7;
+    }
+}
+@media only screen and (max-width: 520px){
+    .Service_Provider_Profile_Container{
+        grid-column-end: span 12;
+    }
+    .Service_Provider_Dynamic_Container{
+        margin-top: 5px;
+        grid-column-start: span 12;
+        grid-gap: 5px;
+        box-shadow: 0px 0px 2px #aaa;
+    }
+}

@@ -1,0 +1,18 @@
+# [ We Use Here Python 3.8.1 as interpreter ]
+# ============[ The Main Backend FrameWork ]==============
+Django==3.1
+asgiref==3.2.10
+pytz==2020.1
+sqlparse==0.3.1
+
+# ============[ For Serializing Data ]==============
+djangorestframework==3.11.0
+
+# ============[ For Search and Filtering Data ]==============
+Markdown==3.2.2
+django-filter==2.3.0
+
+# ============[ For Image File Handle ]==============
+Pillow==7.2.0
+
+

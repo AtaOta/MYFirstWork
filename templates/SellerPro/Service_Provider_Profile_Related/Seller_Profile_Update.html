@@ -1,0 +1,153 @@
+<!--=========================[We extended Base Html page by this code]=========================-->
+{% extends 'Basic.html' %}
+{% load static %}
+<!--==========================[Css content of Profile page]==========================-->
+{% block AppnedStyle_Sheet %}
+<link rel="stylesheet" href="{% static 'css/SellerPro/Seller_Profile_Related/Seller_Profile_Update.css' %}" type="text/css" />
+{% endblock %}
+
+<!--==========================[This is the Body part of this page]==========================-->
+{% block body %}
+
+<!-- =========:~~~~~:==========[ Hole Form Page Holder ]=========:~~~~~:========== -->
+    <div class="All_Profile_From_Base_Container">
+
+        <div class="Basic_From_Holder">
+            <!-- ===========================[ Form Overhed Link Section ]=========================== -->
+            <div class="All_From_links">
+                <div class="All_From_links_list">
+                    <a href="javascript:window.history.back()">
+                        <div class="Account_Creation_Link_With_Icon">
+                            <div class="Account_Creation_Link_Icon">
+                                <img src="{% static 'Icon/HomeIcon/return.svg' %}" alt="Back Icon">
+                            </div>
+                            Cancel
+                        </div>
+                    </a>
+                </div>
+                <div class="All_From_links_list">
+                    <a href="{% url 'Normal_Profile_Update' user.id %}">
+                        <div class="Account_Creation_Link_With_Icon">
+                            <div class="Account_Creation_Link_Icon">
+                                <img src="{% static 'Image/Default/NormalProfile_Img.png' %}" alt="Create Service Provider Profile Icon">
+                            </div>
+                            Update Normal Profile
+                        </div>
+                    </a>
+                </div>
+                <div class="All_From_links_list">
+                    <a href="{% url 'ServiceProvider_Profile_Update' user.id %}">
+                        <div class="Account_Creation_Link_With_Icon">
+                            <div class="Account_Creation_Link_Icon">
+                                <img src="{% static 'Image/Default/SeviceProfile.png' %}" alt="Create Distributor Profile Icon">
+                            </div>
+                            Create Service Provider Profile
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- ===========================[ Which Form Description ]=========================== -->
+            <div class="From_Type_is">
+                {{ user.normalprofile.name }} Create Your Seller Profile
+            </div>
+            <!-- ===========================[ This is Normal Profile Update Form ]=========================== -->
+            <div class="Main_From_Container">
+                <form method="post" action="{% url 'Seller_Profile_Update' user.id %}" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                    <!-- :~~~~~~~~~~~~~~~:[ Form First Section ]:~~~~~~~~~~~~~~~:-->
+                    <div class="Main_From_Container_Form_first" id="Main_From_Container_Form_first">
+                        <div class="BasicFrom_InPut_Submit_first">
+                            <label for="id_Seller_name">Enter Name<em>*</em> :</label>
+                            <input type="text" name="Seller_name" value="{{ user.sellerprofile.Seller_name }}" maxlength="50" required=""  id="id_Seller_name">
+                        </div>
+
+                        <div class="BasicFrom_InPut_Submit_first">
+                            <label for="id_Seller_Store_name">Enter Your Store Name<em>*</em> :</label>
+                            <input type="text" name="Seller_Store_name" value="{{ user.sellerprofile.Seller_Store_name }}" maxlength="100" required=""  id="id_Seller_Store_name">
+                        </div>
+
+                        <div class="BasicFrom_InPut_Submit_first">
+                            <label for="id_Seller_Store_type">Your Service Type:</label>
+                            {{ form.Seller_Store_type }}
+                        </div>
+
+                        <div class="BasicFrom_InPut_Submit_first">
+                            <label for="id_Seller_particular_profession">Describe Your Profession<em>*</em> :</label>
+                            <input type="text" name="Seller_particular_profession" value="{{ user.sellerprofile.SerV_particular_profession }}" maxlength="255" required=""  id="id_Seller_particular_profession">
+                        </div>
+
+                        <div class="BasicFrom_InPut_Submit_first">
+                            <label for="id_Seller_birth_date">Date of Birth<em>*</em> :</label>
+                            <input type="date" name="Seller_birth_date" value="{{ form.Seller_birth_date.value | date:'Y-m-d'}}" required="" id="id_Seller_birth_date">
+                            
+                        </div>
+
+                        <div class="BasicFrom_InPut_Submit_first">
+                            <label for="id_Seller_age">Age<em>*</em> :</label>
+                            <input type="number" name="Seller_age" value="{{ user.sellerprofile.Seller_age }}" required="" id="id_Seller_age">
+                        </div>
+
+                        <div class="BasicFrom_InPut_Submit_first">
+                            <label for="id_Seller_address">Enter Your Address<em>*</em> :</label>
+                            <input type="text" name="Seller_address" maxlength="255" value="{{ user.sellerprofile.Seller_address }}" required="" id="id_Seller_address">
+                        </div>
+
+                        <div class="BasicFrom_InPut_Submit_first">
+                            <label for="id_Seller_phone_no">Enter Phone No.<em>*</em> :</label>
+                            <input type="text" name="Seller_phone_no" value="{{ user.sellerprofile.Seller_phone_no }}" maxlength="15" required="" id="id_Seller_phone_no">
+                        </div>
+
+                        <div class="BasicFrom_InPut_Submit_first">
+                            <label for="id_Seller_gender">Choose Gender<em>*</em> :</label>
+                            {{ form.Seller_gender }}
+                        </div>
+
+                        <div class="BasicFrom_InPut_Submit_first NextSection_Of_Form">
+                            <div id="NextSection_Of_Form_InnerContainer">
+                                <a href="#">Next</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- :~~~~~~~~~~~~~~~:[ Form Second Section ]:~~~~~~~~~~~~~~~:-->
+                    <div class="Main_From_Container_Form_second Main_From_Container_Form_second_Hide" id="Main_From_Container_Form_second">
+
+                        <!-- User Profile Picture -->
+                        <div class="BasicFrom_InPut_Submit_Profile_Picture">
+
+
+                            <div class="UserProfile_image_preview" id="UserProfile_image_Preview">
+                                <img src=" " class="UserProfile_image_preview__image">
+                                <span class="UserProfile_image_preview_default_text">Profile Image PreView</span>
+                            </div>
+
+                            <input type="file" name="Seller_Profile_pick" accept="image/*" id="id_Seller_Profile_pick">
+
+                            <label for="id_Seller_Profile_pick">
+                                <img src="{% static 'Icon/NormPro/IconForPosts/folderIcon.svg' %}" alt="file Icon">
+                                Choose Your Service Provider Picture
+                            </label>
+                        </div>
+                        
+                        <div class="BasicFrom_InPut_Submit_first BasicFrom_InPut_Submit">
+                            <button type="submit">Submit</button>
+                        </div>
+
+                        <!-- Main_From_Container_Form_second_Hide -->
+                        <div class="PreviousSection_Of_Form">
+                            <div id="PreviousSection_Of_Form_InnerContainer">
+                                <a href="#">Previous</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="{% static 'js/SellerPro/Seller_Profile_Related/Seller_Profile_Update.js' %}" async defer></script>
+{% endblock %}

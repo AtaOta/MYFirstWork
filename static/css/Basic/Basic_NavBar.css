@@ -1,0 +1,164 @@
+
+#A_Nave_Hider{
+    background-color: transparent;
+}
+#A_Nave_Shower{
+    background-color: rgba(255, 255, 255, 0.98);
+    box-shadow: 0px 0px 2px #333;
+}
+
+/* Creating Animation Scroll purpose */
+.HoverLeft{
+    margin-left: 0px;
+    transition: 1s;
+}
+.HoverRight{
+    margin-left: 100%;
+    transition: 1s;
+}
+
+
+/* Inner content of The Nave Bar */
+#A_Nave_Shower ul{
+    width: 100%;
+    height: 100%;
+    list-style-type: none;
+    position: fixed;
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0px 0px 3px rgb(180, 177, 177);
+    overflow: auto;
+}
+.item{
+    border-top: 1px solid #2980b9;
+    overflow: hidden;
+}
+.item:first-child{
+    border-top: none;
+}
+.Navbtn{
+    display: block;
+    padding: 16px 20px;
+    background: transparent;
+    color: #159AC4;
+    font-size: 16px;
+    font-weight: bold;
+    position: relative;
+    text-decoration: none;
+}
+.Navbtn:before{
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background: rgba(255, 255, 255, 0.98);
+    left: 20px;
+    bottom: -7px;
+    transform: rotate(45deg);
+}
+.Navbtn img{
+    margin-right: 5px;
+    margin-left: -5px;
+}
+
+.sMenu{
+    background: #333;
+    font-weight: bold;
+    overflow: hidden;
+    transition: max-height 0.5s;
+    max-height: 0;
+}
+.sMenu a{
+    display: block;
+    padding: 16px 26px;
+    color: white;
+    font-size: 12px;
+    margin: 4px 0;
+    position: relative;
+    text-decoration: none;
+}
+.sMenu a:hover{
+    background: #b3ff00;
+    color: black;
+    text-decoration: none;
+}
+.sMenu a:before{
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 100%;
+    background: #3498db;
+    left: 0;
+    top: 0;
+    transition: 0.3s;
+    opacity: 0;
+}
+.sMenu a:hover:before{
+    opacity: 1;
+}
+.item:target .sMenu{
+    max-height: 600px;
+}
+.item a:last-child{
+    display: inline-block;
+}
+/* This portion is for asome nevigation bar Which contains Dark Screen Mood  */
+#Dark-Screen-Button{
+    width: 100%;
+    height: 20px;
+    display: flex;
+    justify-content: space-around;
+    margin-left: -5px;
+}
+.Dark-Screen-Off{
+    color: red;
+}
+.Dark-Screen-On{
+    color: rgb(65, 250, 9);
+}
+
+/* this is dark screen button section  */
+
+.Dark-screen-button-holder{
+    display: flex;
+}
+
+.darkScreen-checkbox{
+    opacity: 0;
+    position: absolute;
+}
+.label-darkScreen-checkbox{
+    background-color: rgb(255, 185, 185);
+    display: flex;
+    border-radius: 50px;
+    position: relative;
+    height: 16px;
+    width: 32px;
+    border: 0.5px solid rgb(184, 5, 5);
+}
+.darkScreen-checkbox:checked + .label-darkScreen-checkbox{
+    background-color: rgb(210, 255, 173);
+    border: 0.5px solid rgb(113, 187, 2);
+
+}
+.darkScreen-ball{
+    background-color: rgb(184, 5, 5);
+    position: absolute;
+    padding-top: 1px;
+    height: 14px;
+    width: 14px;
+    border-radius: 50%;
+    transition: transform 0.3s linear;
+}
+.darkScreen-checkbox:checked + .label-darkScreen-checkbox .darkScreen-ball{
+    transform: translateX(17px);
+    background-color: rgb(113, 187, 2);
+}
+
+
+/* Making NaveBar responsive */
+@media only screen and (max-width: 750px){
+    .Navbtn{
+        font-weight: normal;
+        font-size: 14px;
+    }
+}

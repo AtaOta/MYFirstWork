@@ -1,0 +1,79 @@
+{% extends 'basic.html' %}
+{% load static %}
+
+{% block AppnedStyle_Sheet %}
+    <link rel="stylesheet" href="{% static 'css/MapCap/Basic_Map_Page.css' %}" type="text/css">
+{% endblock %}
+
+
+{% block body %}
+<div id="Base_Map_Holder">
+<!--    &lt;!&ndash; This is Map part &ndash;&gt;-->
+    <div id="map"></div>
+
+<!--    This below div is Required adjusting the map-->
+    <div></div>
+</div>
+
+<!--// All scripts are here-->
+    <script>
+        function initMap() {
+            // Map Option
+            let options = {
+                minZoom: 3,
+                maxZoom: 24,
+                zoom: 8,
+                center: { lat: 22.6759958, lng: 88.0488376 }
+            }
+
+
+
+            // New Map
+            var map = new
+                google.maps.Map(document.getElementById('map'), options);
+
+
+            // Add Marker
+            {% for location in all_location %}
+            addMarker({
+                coords: { lat: {{ location.latitude }}, lng: {{ location.longitude }} },
+                iconImg: "{% static '/Images/CapMap/Location-Red.svg' %}",
+                contentString: '<div class="mark_here">Get Your Food Here<div>'
+            });
+            {% endfor %}
+
+            function addMarker(props) {
+                var marker = new google.maps.Marker({
+                    position: props.coords,
+                    map: map,
+                    icon: props.iconImg
+                });
+
+                // Check for customicon
+                if (props.iconImage) {
+                    // Set icon image
+                    marker.setIcon(props.iconImage);
+                }
+
+                // Check content
+                if (props.contentString) {
+                    var infoWindow = new google.maps.InfoWindow({
+                        content: props.contentString
+                    });
+
+                    marker.addListener('click', function () {
+                        infoWindow.open(map, marker);
+                    });
+
+                }
+            }
+
+        }
+
+    </script>
+
+    <!-- Embeding Map Api -->
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCw6G6AnBOLTw1tcl3n4sxxvIPZTqO2khQ&callback=initMap">
+    </script>
+{% endblock %}

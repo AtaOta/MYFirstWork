@@ -1,0 +1,72 @@
+.Loader_Holder{
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    width: 100%;
+    background-color: #fff;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+}
+#Loader{
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 5px  solid hsl(34, 100%, 55%);
+    box-sizing: border-box;
+    animation: rotate1 2s linear 90;
+}
+
+#Loader2{
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 5px  solid hsl(96, 87%, 57%);
+    box-sizing: border-box;
+}
+@keyframes rotate1{
+    100%{transform: rotate(360deg);}
+}
+#Loader3{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: sans-serif;
+    background-color: #fff;
+    color: white;
+    text-shadow: 0px 0px 3px blue;
+    box-shadow: 0px 0px 2px blue;
+    box-sizing: border-box;
+    animation: rotate2 2s linear 90;
+}
+@keyframes rotate2{
+    100%{transform: rotate(-360deg);}
+}
+
+/* This is For Hidin Purpose */
+.Display_None{
+    display: none;
+}
+
+@media only screen and (max-width: 480px){
+    #Loader{
+        border-top: 3px  solid hsl(34, 100%, 55%);
+        padding-top: 0px;
+    }
+    #Loader2{
+        border-bottom: 3px  solid hsl(96, 87%, 57%);
+    }
+}

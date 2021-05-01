@@ -1,0 +1,61 @@
+<!--=========================[We extended Base Html page by this code]=========================-->
+{% extends 'Basic.html' %}
+{% load static %}
+
+<!--==========================[Css content of Profile page]==========================-->
+{% block AppnedStyle_Sheet %}
+<link rel="stylesheet" href="{% static 'css/ataota/home_Cards_Style.css' %}" type="text/css">
+
+{% endblock %}
+
+<!--==========================[This is the Body part of this page]==========================-->
+{% block body %}
+    <div class="Product_Holder">
+        <div class="Product_Card_Holder">
+
+            {% for product in products %}
+            <!-- Card -->
+            <div class="product_Card">
+
+                <!-- Product Name Container -->
+                <div class="Product_Name_Container">
+                    {{ product.prod_name }}
+                </div>
+
+                <div class="Product_Image_Container">
+                    <img src="{{ product.prod_picture.url }}">
+
+                    <!-- Product Offer Container -->
+                    <div class="Product_Offer_Container">
+                        Offer: {{ product.prod_offer }}%
+                    </div>
+                </div>
+
+                <!-- Product Description Container -->
+                <div class="Product_Description_Container">
+                    <span>{{ product.prod_description }}</span>
+                </div>
+
+                <!-- Product Price -->
+                <div class="Product_Price_Container">
+                        Rs. {{ product.prod_price }}/{{ product.quantity }}-{{ product.in_terms_of }}
+                </div>
+
+                <!-- Product Origin -->
+                <div class="Product_Country_Of_Origin_Container">
+                    Made In: {{ product.country_Of_Origin }}
+                </div>
+
+                <!-- Product Links Container -->
+                <div class="Product_Links_Container">
+                    <button>Detail</button>
+                    <button  Id="{{ product.id }}" class="Add_To_Cart" value='add'>Cart</button>
+                    <button>...</button>
+                </div>
+
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+{% endblock %}

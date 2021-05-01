@@ -1,0 +1,80 @@
+/* ========================================This is the Notification section of the page ================================== */
+.Notification_Message{
+    z-index: 1200;
+    padding-top: 50px;
+    height: 100vh;
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+    background-color: transparent;
+    /* display: none; */
+}
+.Notification_Message_DisplayNone{
+    display: none;
+}
+#Notification_message_holder{
+    height: 250px;
+    width: 300px;
+    max-height: 350px;
+    max-width: 420px;
+    position: relative;
+    border-radius: 5px;
+    box-shadow: 0px 0px 3px #bbb;
+    overflow: hidden;
+    text-align: center;
+
+}
+
+.success{
+    background: linear-gradient(0deg, rgba(211,255,198,0.98) 15%, rgba(244,255,235,1) 35%, rgba(244,255,235,1) 65%, rgba(211,255,198,1) 85%);;
+    color: green;
+}
+.error{
+    background: linear-gradient(0deg, rgba(255,224,203,0.98) 15%, rgba(255,248,248,0.98) 35%, rgba(255,248,248,0.98) 65%, rgba(255,224,203,0.98) 85%);
+    color: rgb(238, 11, 11);
+}
+.info{
+    background: linear-gradient(0deg, rgba(170,243,255,0.98) 15%, rgba(249,255,255,0.98) 40%, rgba(249,255,255,0.98) 60%, rgba(170,243,255,0.98) 85%);
+    color: rgb(26, 7, 195);
+}
+#Cancil_Notification_message{
+    height: 10%;
+    float: right;
+    margin: 5px;
+    color: red;
+    font-weight: bold;
+    cursor: pointer;
+    font-variant: small-caps;
+}
+#This_is_Notification_message{
+    height: 90%;
+    width: 96%;
+    padding: 2%;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10%;
+    text-align: center;
+    background-color: transparent;
+}
+/* Making Notification responsive */
+@media only screen and (max-width: 750px){
+    #Cancil_Notification_message{
+        font-size: 14px;
+    }
+    #This_is_Notification_message{
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 350px){
+    #Cancil_Notification_message{
+        font-size: 12px;
+    }
+    #This_is_Notification_message{
+        font-size: 12px;
+    }
+}

@@ -1,0 +1,13 @@
+.idea/
+.vscode
+db.sqlite3
+media/UsrPost
+media/Profile
+media/ServProfile
+media/SellerProfile
+media/products
+
+# Byte-compiled / optimized / DLL files
+**/__pycache__/
+*.pyc
+*.py[co]

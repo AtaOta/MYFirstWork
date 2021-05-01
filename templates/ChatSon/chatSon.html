@@ -1,0 +1,338 @@
+<!--=========================[We extended Base Html page by this code]=========================-->
+{% extends 'Basic.html' %}
+{% load static %}
+
+<!--==========================[Css content of Profile page]==========================-->
+{% block AppnedStyle_Sheet %}
+<link rel="stylesheet" href="{% static 'css/NormPro/NormalProfile/Normalprofile.css' %}" type="text/css" />
+<link rel="stylesheet" href="{% static 'css/NormPro/NormalProfile/OnlyProfileStyle.css' %}" type="text/css" />
+
+<!-- User List Related Links -->
+<link rel="stylesheet" href="{% static 'css/Account/UserList_Related/All_Users_LIst.css' %}" type="text/css" />
+
+<!-- ChatSon Css User list and Message Styller -->
+<link rel="stylesheet" href="{% static 'css/ChatSon/ChatList.css' %}" type="text/css" />
+<link rel="stylesheet" href="{% static 'css/ChatSon/Chat_Position_Adjust.css' %}" type="text/css">
+<link rel="stylesheet" href="{% static 'css/ChatSon/ChatSon.css' %}" type="text/css">
+
+{% endblock %}
+
+<!--==========================[This is the Body part of this page]==========================-->
+{% block body %}
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                    -: This Section is for User Profile And Posts :-
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <div class="Profile_Page_User_Profile_And_Post_Container">
+
+        <!-- ~~~~~~*~~~~~~~*~~~~~~~~*~~~~*~~~~~*~~~~~~*~~~~~~
+                        Profile Page Fixed Content Container
+                    ~~~~~~*~~~~~~~*~~~~~~~~*~~~~*~~~~~*~~~~~~*~~~~~~ -->
+        <div class="User_Profile_Fixed_Content_Container Container_Two Hide_Profile_For_ChatList">
+
+            <!-- ~~~~~~~~~~~~~~~~~~~~~~~ * ~~~~~~~~~~~~~~~~~~~~~~~
+                                This is Main Profile Container
+                    ~~~~~~~~~~~~~~~~~~~~~~~ * ~~~~~~~~~~~~~~~~~~~~~~~ -->
+            <div class="User_Profile_Profile_Base_Container" id="User_Profile_Profile_Base_Container_Hide">
+
+                <!-- __________________[ Profile Section ]__________________ -->
+                <div class="User_Profile_Holder_Container">
+
+                    <!-- ``````````````````````[ Profile Background Containt Container ]`````````````````````` -->
+                    <div class="Profile_BackGround_Containt_Holder">
+                        <!-- [ User Name & Status Section ] -->
+                        <div class="Profile_User_Name_And_Status_Holder"><em>{{ user.normalprofile.name }}
+                            </em><br>{{ user.normalprofile.status }}</div>
+                        <!-- [ User Profile Background Image ] -->
+                        <div class="Profile_User_Background_PickTure">
+                            <img src="{{ user.normalprofile.profile_Background_pic.url }}" alt="Background Image">
+                        </div>
+                    </div>
+                    <!-- ``````````````````````[ Profile Front Containt Container ]`````````````````````` -->
+                    <div class="Profile_FontGround_Containt_Holder">
+
+                        <!-- [ Profile Front Containt First Container Or Circular Icon Holder ] -->
+                        <div class="Font_Content_Container1">
+
+                            <!-- First Circular Icon Holder -->
+                            <div class="User_Profile_Circular_Icon_Holder User_Profile_Circular_Icon_Holder1">
+                                <a href="{% url 'NormalProfile_Map' %}">
+                                    <img src="{% static 'Icon/NormPro/IconForProfile/Location.svg' %}" alt="Set Location">
+                                </a>
+                            </div>
+                            <!-- Second Circular Icon Holder -->
+                            <div class="User_Profile_Circular_Icon_Holder">
+                                <a href="{% url 'Capture_Your_Image' %}">
+                                    <img src="{% static 'Icon/NormPro/IconForProfile/camera.svg' %}" alt="Take Picture">
+                                </a>
+                            </div>
+                            <!-- Third Circular Icon Holder -->
+                            <div class="User_Profile_Circular_Icon_Holder User_Profile_Circular_Icon_Holder3">
+                                <a href="{% url 'Normal_Post_create' request.user.id %}">
+                                    <img src="{% static 'Icon/NormPro/IconForProfile/picture.svg' %}" alt="Create Post">
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- [ Profile Front Containt Second Container Or Profile Picture Holder ] -->
+                        <div class="Font_Content_Container2">
+
+                            <!-- [ Service Provider Profile Picter ] -->
+                            <div class="User_Profile_Image_Holder User_Profile_Image_Holder1">
+                                <img src="{{ user.serviceproviderprofile.SerV_Profile_pick.url }}">
+                                <a href="#">
+                                    <div class="Servide_Provider_Profile_Image_Text">
+                                        Service Provider Profile
+                                    </div>
+                                </a>
+                            </div>
+                            <!-- [ Normal Profile Picter ] -->
+                            <div class="User_Profile_Image_Holder User_Profile_Image_Holder2">
+                                <img src="{{ user.normalprofile.profile_pick.url }}" alt="Normal profile pickture">
+                            </div>
+                            <!-- [ Distributor Profile Picter ] -->
+                            <div class="User_Profile_Image_Holder User_Profile_Image_Holder3">
+                                <img src="{{ user.sellerprofile.Seller_Profile_pick.url }}">
+                                <a href="{% url 'Seller_Profile' request.user.sellerprofile.id %}">
+                                <div class="Servide_Provider_Profile_Image_Text">
+                                    Seller Profile
+                                </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- [ Profile Front Containt Third Container Or Profile/Account Update and More Details Link ] -->
+                        <div class="Font_Content_Container3">
+
+                            <!-- [ Profile Update Link ] -->
+                            <div class="User_Profile_Update_Details_Link">
+                                <a href="{% url 'Normal_Profile_Update' user.id %}">Profile Update</a>
+                            </div>
+                            <!-- [ More Details Link ] -->
+                            <div class="User_Profile_Update_Details_Link User_Profile_More_Details_Link"
+                                id="User_Profile_More_Details_Link">More</div>
+                            <!-- [ Account Update Link ] -->
+                            <div class="User_Profile_Update_Details_Link">
+                                <a href="{% url 'ServiceProvider_Profile_Update' user.id %}">Spacial Account</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- __________________[ Profile Details Section ]__________________ -->
+                <div class="User_Profile_Deatis_Holder_Container User_Profile_Deatis_Holder_Container_Hide"
+                    id="User_Profile_Deatis_Holder_Container_Hide">
+
+                    <!-- ............[ User More Details Holder ]............ -->
+                    <div class="User_Profile_UserMore_Details">
+                        <ul>
+                            <li>Age: {{ user.normalprofile.age }} Years,
+                                Gender: {{ user.normalprofile.gender }},
+                            </li>
+                            <li>
+                                Address: {{ user.normalprofile.address }}
+                            </li>
+                            <li>
+                                About: {{ user.normalprofile.description }}
+                            </li>
+                            <li>
+                                Phone No. : +91-{{ user.normalprofile.phone_no }}
+                            </li>
+                            <li>
+                                Email: madankumar.2020@gmail.com
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- __________________[ Profile Important Link & Basic Details Section ]__________________ -->
+                <div class="User_Profile_ImprotantLink_Holder_Container">
+                    <!-- [ Profile Basic Details Section ] -->
+                    <div class="User_Profile_Basic_Details_Container">
+                        Following: {{ request.user.followersfollowing.get_total_following }},
+                        Followers: {{ request.user.followersfollowing.get_total_followers }},
+                        Here I am:
+                        <a href="#">
+                            <img src="" alt="">
+                        </a>
+                    </div>
+                    <!-- ......................[ Profile Important Link Section ]...................... -->
+                    <div class="User_Profile_ImportantLink_Container">
+                        <ul>
+
+                            <!-- [ Profile Important Link 1 ] -->
+                            <li>
+                                <a href="{% url 'MY_Post' %}">
+                                    <div class="User_Profile_ImportantLink_Icon">
+                                        <img src="{% static 'Icon/NormPro/IconForPosts/SinglePost.svg' %}">
+                                    </div>
+                                    My Post
+                                </a>
+                            </li>
+
+                            <!-- [ Profile Important Link 2 ] -->
+                            <li>
+                                <a href="{% url 'Normal_User_Profile' user.id %}" id="Show_All_Norma_Posts_list">
+                                    <div class="User_Profile_ImportantLink_Icon">
+                                        <img src="{% static 'Icon/NormPro/IconForPosts/All_Post.svg' %}">
+                                    </div>
+                                    All Posts
+                                </a>
+                            </li>
+
+                            <!-- [ Profile Important Link 6 ] -->
+                            <li>
+                                <a href="{% url 'All_Users_List' %}" id="Show_All_Users_list">
+                                    <div class="User_Profile_ImportantLink_Icon">
+                                        <img src="{% static 'Icon/NormPro/All_users.svg' %}">
+                                    </div>
+                                    All Users
+                                </a>
+                            </li>
+
+                            <!-- [ Profile Important Link 4 ] -->
+                            <li>
+                                <a href="{% url 'Followers_User_List' %}">
+                                    <div class="User_Profile_ImportantLink_Icon">
+                                        <img src="{%static 'Icon/NormPro/IconForProfile/friendship.svg' %}" alt="">
+                                    </div>
+                                    Followers List
+                                </a>
+                            </li>
+
+                            <!-- [ Profile Important Link 3 ] -->
+                            <li>
+                                <a href="{% url 'Following_User_List' %}">
+                                    <div class="User_Profile_ImportantLink_Icon">
+                                        <img src="{%static 'Icon/HomeIcon/friendship.svg' %}" alt="">
+                                    </div>
+                                    I am Following
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- ~~~~~~*~~~~~~~*~~~~~~~~*~~~~*~~~~~*~~~~~~*~~~~~~
+                        Chat Display Section
+            ~~~~~~*~~~~~~~*~~~~~~~~*~~~~*~~~~~*~~~~~~*~~~~~~ -->
+        <div class="User_Chat_Display_Container User_Chat_Display_Container_For_SmallScreen Container_Two">
+
+            <!-- This is Chat Box Holder Container -->
+            <div class="Chat_Holder_Container">
+
+                    <div class="Chat_Box_Holder_Container">
+            
+                        <!-- ************[ This Is Header Contaiern Of Chat Box ]************ -->
+                        <div class="Chat_Box_Header_container">
+                            <div class="Chat_Box_User_image_icon">
+                                <a href="#">
+                                    <img src="{{ Detail_Of_User.normalprofile.profile_pick.url }}" alt="">
+                                </a>
+                            </div>
+            
+                            <div class="Chat_Box_UserName_Container">{{ Detail_Of_User.normalprofile.name }}</div>
+            
+                            <div class="Return_From_Chat_Box">
+                                <a href="{% url 'ChatList' %}">
+                                    <img src="{% static 'Icon/HomeIcon/return_2.svg' %}" alt="">
+                                </a>
+                            </div>
+
+                            <div class="Chat_Box_DropDown_Container">
+                                <!-- This Section if for Toggle Down and Up User Profile In Small Screen -->
+                                <div class="Toggle_Down_Profile_Section">
+                                    <img src="{% static 'Icon/ChatSon/arrow_drop_down-24px.svg' %}" id="Fixed_Profile_Toggler_Image" class="" alt="">
+                                </div>
+                            </div>
+                            
+                            
+                            <div id="Nave_Menu_Triger_In_Chat_Page">
+                                <img src="{% static 'Icon/HomeIcon/menu.svg' %}" alt="" id="Show_NavBar_Triger">
+                            </div>
+
+                        </div>
+            
+                        <!-- ************[ This Is Message Box Display Container ]************ -->
+                        <div class="Harman_Holarith Chat_Box_Dispaly_Container" id="message_box_Disppaly_Conatainer">
+                            <div id="Scroll_Ydiraction_Container" class="Wedisplay_Our_Message_here">
+                                <!-- Here We Display Our Chat Messages -->
+                                {% for message in all_messages %}
+                                {% ifequal message.sender.id Detail_Of_User.id %}
+                                <div>
+                                    <div class="User_Message_Shower_Rapper">
+                                        <div class="User_Message_Shower_Details">
+                                            By:{{ message.sender.normalprofile.name }}, {{ message.timestamp }}
+                                        </div>
+                                        <div class="User_Message_Shower_Text">
+                                            {{ message.msg_txt }}
+                                        </div>
+                                    </div>
+                                </div>
+                                {% else %}
+                                <div>
+                                    <div class="Reply_Message_Shower_Rapper">
+                                        <div class="Reply_Message_Shower_Details">
+                                            {{ message.timestamp }}, By: You
+                                    <!--    {{ message.receiver.normalprofile.name }}-->
+                                        </div>
+                                        <div class="Reply_Message_Shower_Text">
+                                            {{ message.msg_txt }}
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endifequal %}
+                                {% endfor %}
+                            </div>
+            
+                        </div>
+            
+            
+            
+                        <!-- ************[ This Is Message Submit Container ]************ -->
+                        <div class="Harman_Holarith Chat_Submit_Container">
+                            <div class="Chat_Submit_Normal_Text Chat_Submit_Normal_TextOnly">
+                                <form method="post" action="{% url 'Create_Chat' Detail_Of_User.id %}" id="Send_messageText_Form">
+                                    {% csrf_token %}
+                                    <textarea name="message_text" placeholder="Enter Your MSG..." required></textarea>
+                                    <input type="hidden" value="{{ Detail_Of_User.id }}" id="Get_Receiver_Id">
+                                    <button type="submit">
+                                        <img src="{% static 'Icon/NormPro/IconForPosts/send.svg' %}" alt="">
+                                    </button>
+                                </form>
+                            </div>
+                            <div class="Chat_Submit_Normal_Text Chat_Submit_File_Fileds">
+                                <form>
+                                    <label for="Chat_File_Submit">
+                                        <img src="{% static 'Icon/NormPro/IconForPosts/folderIcon.svg' %}" alt="">
+                                    </label>
+                                    <input type="file" id="Chat_File_Submit">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                
+            </div>
+
+            <div class="Chat_Adjuster_Container">
+                <!-- chat Adjuster Container -->
+            </div>
+
+
+        </div>
+    </div>
+
+
+{% endblock %}
+
+{% block Script %}
+<script src="{% static 'js/NormPro/NormalProfile/NormalProfile.js' %}" async defer></script>
+<script src="{% static 'js/ChatSon/ChatList.js' %}" async defer></script>
+<script src="{% static 'js/ChatSon/ChatSon.js' %}" async defer></script>
+{% endblock %}
+
+
+

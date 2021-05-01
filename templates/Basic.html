@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+{% load static %}
+<html class="no-js">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title></title>
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- PageLoader Css and Js-->
+  <link rel="stylesheet" href="{% static 'css/Basic/PageLoader.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/Basic/BackEnd_Notification.css' %}" type="text/css" />
+
+  <!-- Basic Css -->
+  <link rel="stylesheet" href="{% static 'css/Basic/Basic.css' %}" />
+  <!-- Other Individual Basic Components -->
+  <link rel="stylesheet" href="{% static 'css/Basic/Basic_Content_Top_Of_Page.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/Basic/Basic_Header.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/Basic/Basic_SearchBox.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/Basic/Basic_NavBar.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/Basic/Basic_TopMenuBar.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/Basic/Basic_Notifire.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/Basic/Basic_ViewSection.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/Basic/Basic_Footer.css' %}" />
+  <!-- Basic Hider -->
+  <link rel="stylesheet" href="{% static 'css/Basic/Basic_Hider.css' %}" />
+  {% block AppnedStyle_Sheet %}{% endblock %}
+</head>
+
+<body>
+  <!-- ~~~~~~~~~~~~~~~~~~~[ Page Loading Display ]~~~~~~~~~~~~~~~~~~ -->
+  <div class="Loader_Holder">
+    <div id="Loader">
+      <div id="Loader2">
+        <div id="Loader3">
+          a
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~[ This is Backend message section ]~~~~~~~~~~~~~~~~~~  -->
+  {% for message in messages %}
+  <div class="Notification_Message">
+    <div id="Notification_message_holder" {% if message.tags %} class="{{ message.tags }}" {% endif %}>
+      <div id="Cancil_Notification_message">
+        X
+      </div>
+      <div id="This_is_Notification_message">
+        {{ message }}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+
+  <!-- ~~~~~~~~~~~~~~~~~~~[ Header Portion ]~~~~~~~~~~~~~~~~~~ -->
+  <header>
+    <!-- ===============[ Logo Portion ]=============== -->
+    <div class="Header_Logo">Logo</div>
+
+    <!-- ===============[ Search Box Portion ]=============== -->
+    <div class="Header_Search_Box">
+      <form action="*">
+        <input type="text" class="Search_Input" placeholder="Search ataota">
+        <button type="button" class="Search_Action_Button">
+          <img src="{% static 'Icon\HomeIcon\search-24px.svg' %}" alt="">
+        </button>
+      </form>
+    </div>
+
+    <!-- ===============[ Triger Section ]=============== -->
+    <div class="Header_Triger_Section">
+      <div class="Top_Scroller_Shower">
+        <img src="{% static 'Icon/HomeIcon/arrow_drop_down-24px.svg' %}" alt="" id="Toggle_Down_Top_ScrollBar_Triger" class="Hide_Content">
+      </div>
+      <div class="Nave_Menu_Triger">
+        <img src="{% static 'Icon/HomeIcon/menu.svg' %}" alt="" id="Show_NavBar_Triger">
+      </div>
+    </div>
+  </header>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~[ Right Side Nevigation ]~~~~~~~~~~~~~~~~~~-->
+  <nav class="">
+    <!-- _______[ Navigation Hider ]_______ -->
+    <div id="A_Nave_Hider"></div>
+
+    <!-- _______[ Main Navigation Content Container ]_______ -->
+    <div id="A_Nave_Shower">
+      <ul>
+        <li class="item" id="abc1">
+            <a href="#abc1" class="Navbtn">
+                <img src="{% static 'Icon/HomeIcon/uploadThings.svg' %}">Upload Things
+            </a>
+            <div class="sMenu">
+                <a href="#" >ServForm</a>
+                <a href="#">Coming Soon</a>
+                <a href="#" >Test</a>
+                {% if user.is_authenticated %}
+                <a href="{% url 'Product_Create' request.user.id %}" >Upload Products</a>
+                {% else %} {% endif %}
+                <a href="#" >Test</a>
+                <a href="#" >Test</a>
+            </div>
+        </li>
+        
+        <li class="item" id="abc2">
+          <a href="#abc2" class="Navbtn">
+              <img src="{% static 'Icon/HomeIcon/DeleteSomething.svg' %}">Delete Things
+          </a>
+          <div class="sMenu">
+              <a href="#">Delete Product</a>
+              <a href="#">Delete Post</a>
+              <a href="#">Delete Account</a>
+              <a href="#">Delete Service Provider Account</a>
+              <a href="#" >Delete Distributor Account</a>
+          </div>
+        </li>
+        
+        <li class="item" id="abc3">
+          <a href="#abc3" class="Navbtn">
+              <img src="{% static 'Icon/HomeIcon/Settings-tools.svg' %}">Settings
+          </a>
+          <div class="sMenu">
+              <a href="{% url 'reset_password' %}">Forgot Password</a>
+              <a href="{% url 'password_change' %}">Change Password</a>
+              <a href="#">Upload Products</a>
+          </div>
+        </li>
+
+        <li class="item" id="abc4">
+          <a href="#abc4" class="Navbtn">
+              <img src="{% static 'Icon/NormPro/IconForPosts/EditSomeThing.svg' %}">Edit Things
+          </a>
+          <div class="sMenu">
+              <a href="#">Edit Profile</a>
+              <a href="#">Edit Post</a>
+              <a href="#">Edit Product</a>
+          </div>
+        </li>
+
+
+        <li class="item" id="abc5">
+          <a href="#abc5" class="Navbtn">
+              <img src="{% static 'Icon/HomeIcon/All_Type_Users.svg' %}">Every Type Of Users
+          </a>
+          <div class="sMenu">
+              <a href="#">Normal Users</a>
+              <a href="#">All Seller</a>
+              <a href="#">All Service Provider</a>
+          </div>
+        </li>
+        <!-- Dark Screen Mode contanint here -->
+<!--        <li class="item">-->
+<!--            <a href="#" class="Navbtn">Dark Screen Mood<br><br>-->
+
+<!--                &lt;!&ndash; This is Dark Screen button section  &ndash;&gt;-->
+<!--                <div class="Dark-screen-button-holder">-->
+<!--                    <p class="Dark-Screen-Off">OFF</p>-->
+<!--                        <input type="checkbox" class="darkScreen-checkbox" name="" id="darkScreen-checkbox">-->
+<!--                        <label for="darkScreen-checkbox" class="label-darkScreen-checkbox">-->
+<!--                            <div class="darkScreen-ball">-->
+
+<!--                            </div>-->
+<!--                        </label>-->
+<!--                    <p class="Dark-Screen-On">ON</p>-->
+<!--                </div>-->
+<!--            </a>-->
+<!--        </li>-->
+
+      </ul>
+
+    </div>
+
+  </nav>
+
+  <!-- Without Scroll Bar Body -->
+  {% block WithOut_ScrollBar %}
+
+  <!-- Top Scroll Menu Section -->
+  <div id="A_Top_menuBar" class="">
+    <ul>
+      <!-- LogIn -->
+      {% if user.is_authenticated %}
+      {% else %}
+      <li>
+        <a href="{% url 'Login' %}">
+          <div class="Scroll-MenuBar-iconStyle">
+            <div class="Scroll-MenuBar-iconStyle-img">
+                  <img src="{%static 'Icon/HomeIcon/login.svg'%}">
+              </div>
+              <div class="Scroll-MenuBar-iconStyle-txt">
+                Login
+              </div>
+          </div>
+        </a>
+      </li>
+      <!-- AignUp -->
+      <li>
+        <a href="{% url 'SignUp' %}">
+          <div class="Scroll-MenuBar-iconStyle">
+            <div class="Scroll-MenuBar-iconStyle-img">
+                  <img src="{%static 'Icon/HomeIcon/SignUp.svg'%}">
+              </div>
+              <div class="Scroll-MenuBar-iconStyle-txt">
+                  SignUp
+              </div>
+          </div>
+        </a>
+      </li>
+      {% endif %}
+      <!-- All Products -->
+      <li>
+        <a href="#">
+          <div class="Scroll-MenuBar-iconStyle">
+            <div class="Scroll-MenuBar-iconStyle-img">
+                  <img src="{%static 'Icon/HomeIcon/product.svg'%}">
+              </div>
+              <div class="Scroll-MenuBar-iconStyle-txt">
+                  All Products
+              </div>
+          </div>
+        </a>
+      </li>
+      <!-- Trending -->
+      <li>
+        <a href="#">
+          <div class="Scroll-MenuBar-iconStyle">
+            <div class="Scroll-MenuBar-iconStyle-img">
+                  <img src="{%static 'Icon/HomeIcon/Trending.svg'%}">
+              </div>
+              <div class="Scroll-MenuBar-iconStyle-txt">
+                  Trending
+              </div>
+          </div>
+        </a>
+      </li>
+      <!-- About Us -->
+      <li>
+        <a href="{% url 'aboutUs' %}">
+          <div class="Scroll-MenuBar-iconStyle">
+            <div class="Scroll-MenuBar-iconStyle-img">
+                  <img src="{%static 'Icon/HomeIcon/AboutUs.svg'%}">
+              </div>
+              <div class="Scroll-MenuBar-iconStyle-txt">
+                  About Us
+              </div>
+          </div>
+        </a>
+      </li>
+      {% if user.is_authenticated %}
+      <!-- logOut -->
+      <li>
+        <a href="{% url 'LogOut' %}">
+          <div class="Scroll-MenuBar-iconStyle">
+            <div class="Scroll-MenuBar-iconStyle-img">
+                  <img src="{%static 'Icon/HomeIcon/logout.svg'%}">
+              </div>
+              <div class="Scroll-MenuBar-iconStyle-txt">
+                  LogOut
+              </div>
+          </div>
+        </a>
+      </li>
+      {% else %}
+      {% endif %}
+    </ul>
+  </div>
+
+  <!-- Notification Section -->
+  <div id="A_Nofire" class="Hide_Content">
+    <!-- Inport Some thing Above The page  -->
+    <h1>This is Our Notifire</h1>
+  </div>
+  <!-- Notification Section -->
+  <div id="Content_Top_Of_Page" class="">
+    {% block PageOver_Content%} {% endblock %}
+  </div>
+
+  <!-- This is Dynamic Content Section -->
+  <section>
+    <div id="A_PageVue">
+      {% block body %} {% endblock %}
+    </div>
+  </section>
+  {% endblock %}
+
+  <!-- Footer Section -->
+  <footer>
+    
+    <a href="/">
+      <div class="Footer_icon_style">
+          <div class="Footer_icon_style_img">
+              <img src="{% static 'Icon/HomeIcon/home-24px.svg' %}">
+          </div>
+          <div class="footer-icon-style-txt">
+              Home
+          </div>
+      </div>
+    </a>
+
+
+
+    <a {% if user.is_authenticated %} href="{% url 'Normal_User_Profile' user.id %}"
+        {% else %} href="{% url 'Login' %}" {% endif %}>
+      <div class="Footer_icon_style">
+          <div class="Footer_icon_style_img">
+              <img src="{% static 'Icon/HomeIcon/entrepreneur.svg' %}">
+          </div>
+          <div class="footer-icon-style-txt">
+              Profile
+          </div>
+      </div>
+    </a>
+
+    <!-- Chat Icon With link  -->
+    <a href="{% url 'ChatList' %}">
+
+        <div class="Footer_icon_style">
+            <div class="Footer_icon_style_img">
+                <img src="{%static 'Icon/HomeIcon/send.svg'%}">
+            </div>
+            <div class="footer-icon-style-txt">
+                Chat
+            </div>
+        </div>
+    </a>
+
+    <a href="{% url 'Map_Page' %}">
+        <div class="Footer_icon_style">
+            <div class="Footer_icon_style_img">
+                <img src="{% static 'Icon/HomeIcon/worldwide.svg' %}">
+            </div>
+            <div class="footer-icon-style-txt">
+                Map
+            </div>
+        </div>
+    </a>
+
+    <a href="{% url 'Shoping_Cart' %}">
+        <div class="Footer_icon_style">
+            <div class="Footer_icon_style_img" class="Cart_Product">
+                <img src="{% static 'Icon/HomeIcon/shopping_cart-24px.svg' %}">
+                <div id="Cart_Product_Count">
+                  {{ cartItems }}
+                </div>
+            </div>
+            <div class="footer-icon-style-txt">
+                Cart
+            </div>
+        </div>
+    </a>
+  </footer>
+
+  <!-- Basic Script -->
+  <script src="{% static 'js/Basic/Basic.js' %}" async defer></script>
+  <!-- Other Individual Basic Components -->
+  <script src="{% static 'js/Basic/Basic_NavBar.js' %}" async defer></script>
+  <script src="{% static 'js/Basic/Basic_ViewSection.js' %}" async defer></script>
+  <script src="{% static 'js/Basic/BackEnd_Notification.js' %}" async defer></script>
+  <script src="{% static 'js/ataota/Cart.js' %}" async defer></script>
+  <script type="text/javascript">
+    var user = '{{ request.user }}';
+    function getToken(name){
+      var cookieValue = null;
+      if (document.cookie && document.cookie != ''){
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++){
+          var cookie = cookies[i].trim();
+          //Does this cookie string begin with the name we want?
+          if (cookie.substring(0, name.length + 1) === (name + '=')){
+            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            break;
+          }
+        }
+      }
+      return cookieValue;
+    }
+    var csrftoken = getToken('csrftoken');
+  </script>
+  {% block Script %} {% endblock %}
+</body>
+</html>
+

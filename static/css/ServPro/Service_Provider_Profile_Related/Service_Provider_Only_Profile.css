@@ -1,0 +1,105 @@
+.Service_Provider_Profile_Container_holder{
+    display: grid;
+    grid-template-columns: repeat(12, minmax(auto, 130px));
+    grid-gap: 5px;
+
+}
+.Service_Provider_Profile_Image_Holder{
+    grid-column-end: span 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+    box-sizing: border-box;
+}
+.ServiceProvider_Image{
+    height: 70px;
+    width: 70px;
+    object-fit: cover;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.ServiceProvider_Image img{
+    height: 100%;
+    width: 100%;
+}
+
+
+
+.Service_Provider_Profile_Description_Holder{
+    grid-column-start: span 9;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    color: #707070;
+}
+.Serv_Ratting{
+    height: 25px;
+    padding: 5px 0px;
+    align-items: center;
+}
+.Star_Backgrund{
+    height: 22px;
+    width: 120px;
+}
+#Star_Backgrund_Color{
+    height: 20px;
+    background-color: #04ffdd;
+}
+
+
+.Star_Container{
+    height: 24px;
+    width: 120px;
+    display: flex;
+    transform: translateY(-24px);
+}
+
+.Serv_Follow{
+    height: 25px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #a8f2488a;
+    border-radius: 5px;
+}
+.Serv_Follow button{
+    border: none;
+    padding: 0px 5px;
+    background-color: transparent;
+    color: green;
+}
+.Serv_Follow button:focus{
+    outline: 0;
+}
+
+
+
+
+.Service_Provider_Profile_Name_Holder{
+    grid-column-end: span 12;
+    padding: 0px 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #707070;
+}
+
+
+
+.Service_Provider_Profile_MoreDetails_Holder{
+    grid-column-end: span 12;
+    padding: 5px 10px;
+    height: auto;
+    background-color: #acd0ff38;
+    font-size: 14px;
+    color: #707070;
+    display: grid;
+    grid-gap: 5px;
+}
+.Serv_Phone_Number{
+    color: #AF6AF5;
+    font-weight: bold;
+
+}
+

@@ -1,0 +1,110 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    font-family: sans-serif;
+}
+
+/* --[ Header Portion ]-- */
+header{
+    position: fixed;
+    height: 45px;
+    width: 100%;
+    box-shadow: 0px 0px 2px #333;
+    z-index: 600;
+    background-color: #fff;
+    display: flex;
+}
+
+/* --[ Right Side Nevigation Bar ]-- */
+nav{
+    height: 100vh;
+    position: fixed;
+    z-index: 800;
+    width: 100%;
+    display: grid;
+    margin-left: 100%;
+    grid-template-columns: 40% 60%;
+}
+
+/* --[ Top Scroll Menu Section ]-- */
+#A_Top_menuBar{
+    width: 100%;
+    padding-top: 45px;
+    position: fixed;
+    z-index: 500;
+    background-color: #fff;
+    transition: 0.5s;
+    border-bottom: 1px solid cyan;
+}
+
+/* --[ Dynmic & Notification Section ]-- */
+section{
+    height: 100vh;
+    width: 100%;
+    background-color: transparent;
+    position: fixed;
+    overflow: auto;
+}
+section::-webkit-scrollbar{
+    display: none;
+}
+
+/* --[ Footer Section ]-- */
+footer{
+    position: fixed;
+    bottom: 0;
+    height: 45px;
+    width: 100%;
+    box-shadow: 0px 0px 2px #333;
+    z-index: 600;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+@media only screen and (min-width: 750px){
+    header{
+        width: 80%;
+    }
+    nav{
+        position: relative;
+        width: 20%;
+        float: right;
+        grid-template-columns: 0% 100%;
+    }
+    #A_Top_menuBar{
+        width: 80%;
+    }
+    section{
+        width: 80%;
+    }
+    footer{
+        width: 80%;
+    }
+}
+@media only screen and (min-width: 1000px){
+    header{
+        width: 84%;
+    }
+    nav{
+        position: relative;
+        width: 16%;
+        float: right;
+        grid-template-columns: 0% 100%;
+    }
+    #A_Top_menuBar{
+        width: 84%;
+    }
+    section{
+        width: 84%;
+    }
+    footer{
+        width: 84%;
+    }
+}

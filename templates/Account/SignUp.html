@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+{% load static %}
+<html class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="{% static 'css/Account/SignUp_Style.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/Basic/BackEnd_Notification.css' %}" type="text/css">
+</head>
+
+<body>
+<!-- ~~~~~~~~~~~~~~~~~~~This is message section~~~~~~~~~~~~~~~~~~  -->
+    {% for message in messages %}
+    <div class="Notification_Message">
+        <div id="Notification_message_holder" {% if message.tags %} class="{{ message.tags }}" {% endif %}>
+            <div id="Cancil_Notification_message">
+                X
+            </div>
+            <div id="This_is_Notification_message">
+                {{ message }}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+<!-- ==========================[ SignUp Form Section ]===========================  -->
+    <div id="It_is_SignUpfrom">
+        <div class="Signup-Rapper">
+            <div id="SignupFrom-container">
+                <span class="SignupFrom-Heding">
+                    <h2>Sign up Please</h2>
+                </span>
+                <!-- ~~~~~~~~~~~~~~~~~~This is the from section~~~~~~~~~~~~~~~~~~  -->
+                {% if otp %}
+
+                <form action="{% url 'SignUp' %}" method="post">
+                    {% csrf_token %}
+                    <div class="SignupInpu-group">
+                        <input type="text" name="sign_otp" maxlength="6" placeholder="Enter OTP">
+                    </div>
+                    <input type="hidden" name="OTP_user" value="{{ otp_user.id }}">
+                    <!-- That section Target SignUP  -->
+                    <div class="SignupInpu-group">
+                        <button type="submit">
+                          Submit
+                            <div class="SignUp-IconSubmit">
+                                <img src="{% static 'Icon/Account/send.svg' %}" alt="SendIcon">
+                            </div>
+                        </button>
+                    </div>
+                </form>
+
+                {% else %}
+                <form action="{% url 'SignUp' %}" method="post" id="SignUp_Form">
+                    {% csrf_token %}
+                    <!-- full Name  -->
+                    <div class="SignupInpu-group">
+                        <div class="SignUp-IconHolder">
+                            <img src="{% static 'Icon/Account/userAll.svg' %}" alt="UserIcon">
+                        </div>
+                            <input type="text" name="full_name" maxlength="30" id="id_full_name" placeholder="Enter Full Name">
+                        <span class="SignUp-bar">
+                        </span>
+                    </div>
+                    <span class="Validate Check_first_name"></span>
+
+                    <!-- User Name  -->
+                    <div class="SignupInpu-group">
+                        <div class="SignUp-IconHolder">
+                            <img src="{% static 'Icon/Account/user.svg' %}" alt="UserIcon">
+                        </div>
+                            <input type="text" name="username" maxlength="40" id="id_username" placeholder="User Name...">
+                        <span class="SignUp-bar"></span>
+                    </div>
+                    <span class="Validate Check_User_name"></span>
+
+                    <!-- Email  -->
+                    <div class="SignupInpu-group">
+                        <div class="SignUp-IconHolder">
+                            <img src="{% static 'Icon/Account/gmail.svg' %}" alt="AddmailIcon">
+                        </div>
+                            <input type="email" name="email" maxlength="100" id="id_email" placeholder="Enter Email">
+                        <span class="SignUp-bar"></span>
+                    </div>
+                    <span class="Validate check_Email"></span>
+
+                    <!-- Phone  -->
+                    <div class="SignupInpu-group" style="display:none;">
+                        <div class="SignUp-IconHolder">
+                            <img src="{% static 'Icon/Account/gmail.svg' %}" alt="AddmailIcon">
+                        </div>
+                            <input type="text" name="phone" maxlength="10" id="id_phone">
+                        <span class="SignUp-bar"></span>
+                    </div>
+
+                    <!-- This is password section  -->
+                    <div class="SignupInpu-group">
+                        <div class="SignUp-IconHolder">
+                            <img src="{% static 'Icon/Account/lock.svg' %}" alt="LockIcon" style="height: 30px; width: 30px;">
+                        </div>
+                        
+                        <input type="password" name="password1" maxlength="30" id="id_password" placeholder="Enter Password">
+                        <span class="SignUp-bar"></span>
+                        <div class="SignUp-IconHolder" id="Password_icon_In_S">
+                            <img src="{% static 'Icon/Account/invisible.svg' %}" alt="InvisibleIcon">
+                        </div>
+                    </div>
+                    <span class="Validate check_Password"></span>
+
+                    <!-- This is confirm password section -->
+                    <div class="SignupInpu-group">
+
+                        <div class="SignUp-IconHolder">
+                            <img src="{% static 'Icon/Account/lock.svg' %}" alt="LockIcon" style="height: 30px; width: 30px;">
+                        </div>
+                        <input type="password" name="password2" maxlength="30" id="id_re_password" placeholder="Re-Enter Password">
+                        <span class="SignUp-bar"></span>
+                        <div class="SignUp-IconHolder" id="ConfirmPassword_icon_In_S">
+                            <img src="{% static 'Icon/Account/invisible.svg' %}" alt="InvisibleIcon">
+                        </div>
+                    </div>
+                    <span class="Validate check_Re_Password"></span>
+
+                    <!-- That section Target SignUP  -->
+                    <div class="SignupInpu-group">
+                        <button type="submit">
+                          Submit
+                            <div class="SignUp-IconSubmit">
+                                <img src="{% static 'Icon/Account/send.svg' %}" alt="SendIcon">
+                            </div>
+                        </button>
+                    </div>
+                    <div class="SignupSwitch-login">
+                        <a href="{% url 'Login' %}">( Already have an account. )
+                            <span class="SignUp-bar">Login</span>
+                        </a>
+                    </div>
+                </form>
+                {% endif %}
+                <div class="Cancel_SignUp" id="Candel_SignUp">
+                    <a href="javascript:window.history.back()"><button>Cancel</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'js/Account/SignUp_Validator.js' %}"></script>
+    <script src="{% static 'js/Basic/BackEnd_Notification.js' %}" async defer></script>
+</body>
+</html>

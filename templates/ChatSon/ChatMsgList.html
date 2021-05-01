@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% load static %}
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>This is Chat Masseges Page</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+
+        {% for message in all_messages %}
+        {% ifequal message.sender.id receiverID %}
+        <div>
+            <div class="User_Message_Shower_Rapper">
+                <div class="User_Message_Shower_Details">
+                    By:{{ message.sender.normalprofile.name }}, {{ message.timestamp }}
+                </div>
+                <div class="User_Message_Shower_Text">
+                    {{ message.msg_txt }}
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div>
+            <div class="Reply_Message_Shower_Rapper">
+                <div class="Reply_Message_Shower_Details">
+                    {{ message.timestamp }}, By: You
+            <!--    {{ message.receiver.normalprofile.name }}-->
+                </div>
+                <div class="Reply_Message_Shower_Text">
+                    {{ message.msg_txt }}
+                </div>
+            </div>
+        </div>
+        {% endifequal %}
+        {% endfor %}
+
+        <script src="" async defer></script>
+    </body>
+</html>
